@@ -7,6 +7,8 @@ import java.util.List;
 public interface InterfaceServicosPrestadorServicos {
     PrestadorServico savePrestadorServicos(PrestadorServico entity);
 
+    PrestadorServico findByIdPrestadorServicos(Long id);
+
     List<PrestadorServico> findAllPrestadorServicos();
 
     void deleteByIdPrestadorServicos(Long id);

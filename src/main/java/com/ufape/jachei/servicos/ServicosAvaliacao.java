@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ServicosAvaliacao implements InterfaceServicosAvaliacao {
@@ -15,6 +16,16 @@ public class ServicosAvaliacao implements InterfaceServicosAvaliacao {
     @Override
     public Avaliacao saveAvaliacao(Avaliacao entity) {
         return repositorioAvaliacao.save(entity);
+    }
+
+    @Override
+    public Avaliacao findByIdAvaliacao(Long id) {
+        Optional<Avaliacao> avaliacao = repositorioAvaliacao.findById(id);
+        if(avaliacao.isPresent()){
+            return avaliacao.get();
+        }else{
+            return null;
+        }
     }
 
     @Override

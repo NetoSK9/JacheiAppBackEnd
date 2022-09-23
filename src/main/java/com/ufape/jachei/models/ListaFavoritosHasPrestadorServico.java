@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "listafavoritos_has_prestadorservicos")
-public class ListafavoritosHasPrestadorservico {
+public class ListaFavoritosHasPrestadorServico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

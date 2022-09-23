@@ -8,48 +8,48 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value =  "/jachei")
+@RequestMapping(value =  "/jachei/usuarios")
 @RestController
 public class UsuarioController {
     @Autowired
-    private Facade facade;
+    private Facade facede;
 
     @PostMapping(value = "/salvar-usuario")
     public String saveUsuario(@RequestBody Usuario entity) {
-        facade.saveUsuario(entity);
+        facede.saveUsuario(entity);
         return "Salvo...";
     }
 
     @GetMapping( value = "/usuario/{id}" )
     public Usuario findUsuario(@PathVariable Long id) {
-        return facade.findByIdUsuario(id);
+        return facede.findByIdUsuario(id);
     }
 
     @GetMapping( value = "/ver-todos-usuarios" )
     public List<Usuario> findAllUsuarios() {
-        return facade.findAllUsuarios();
+        return facede.findAllUsuarios();
     }
 
     @PutMapping( value = "/alterar-usurario/{id}" )
     public String updateUser(@PathVariable Long id, @RequestBody @NotNull Usuario usuario ){
-        Usuario updateUser = facade.findByIdUsuario(id);
+        Usuario updateUser = facede.findByIdUsuario(id);
 
         updateUser.setLinkFoto(usuario.getLinkFoto());
         updateUser.setNome(usuario.getNome());
 
-        facade.saveUsuario(updateUser);
+        facede.saveUsuario(updateUser);
 
         return "Alterado...";
     };
 
     @DeleteMapping( value = "/remover-usuario/{id}")
     public void deleteByIdUsuario(@PathVariable Long id) {
-        facade.deleteByIdUsuario(id);
+        facede.deleteByIdUsuario(id);
     }
 
     @DeleteMapping( value = "/remover-usuario")
     public void deleteUsuario(Usuario entity) {
-        facade.deleteUsuario(entity);
+        facede.deleteUsuario(entity);
     }
 
 

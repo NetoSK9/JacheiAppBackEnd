@@ -7,6 +7,8 @@ import java.util.List;
 public interface InterfaceServicosAvaliacao {
     Avaliacao saveAvaliacao(Avaliacao entity);
 
+    Avaliacao findByIdAvaliacao(Long id);
+
     List<Avaliacao> findAllAvaliacao();
 
     void deleteByIdAvaliacao(Long id);

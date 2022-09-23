@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class Facade {
@@ -23,6 +22,10 @@ public class Facade {
 
     public PrestadorServico savePrestadorServicos(PrestadorServico entity) {
         return servicosPrestadorServicos.savePrestadorServicos(entity);
+    }
+
+    public PrestadorServico findByIdPrestadorServicos(Long id){
+        return servicosPrestadorServicos.findByIdPrestadorServicos(id);
     }
 
     public List<PrestadorServico> findAllPrestadorServicos() {
@@ -38,14 +41,15 @@ public class Facade {
     }
 
 
-
-
-
     public Avaliacao saveAvaliacao(Avaliacao entity) {
         return servicosAvaliacao.saveAvaliacao(entity);
     }
 
-    public List<Avaliacao> findAllAvaliacao() {
+    public Avaliacao findByIdAvaliacao(Long id) {
+        return servicosAvaliacao.findByIdAvaliacao(id);
+    }
+
+    public List<Avaliacao> findAllAvaliacoes() {
         return servicosAvaliacao.findAllAvaliacao();
     }
 
@@ -56,6 +60,7 @@ public class Facade {
     public void deleteAvaliacaoRepo(Avaliacao entity) {
         servicosAvaliacao.deleteAvaliacaoRepo(entity);
     }
+
 
 
     public Usuario saveUsuario(Usuario entity) {
