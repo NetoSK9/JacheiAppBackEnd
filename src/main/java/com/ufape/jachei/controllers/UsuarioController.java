@@ -47,7 +47,6 @@ public class UsuarioController {
         facede.deleteByIdUsuario(id);
     }
 
-    @DeleteMapping( value = "/remover-usuario")
     public void deleteUsuario(Usuario entity) {
         facede.deleteUsuario(entity);
     }

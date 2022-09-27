@@ -1,5 +1,7 @@
 package com.ufape.jachei.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,13 @@ public class ListaFavoritosHasPrestadorServico {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_prestadorServicos", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private PrestadorServico idPrestadorservicos;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_contato", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private ListaFavoritos idListaFavoritos;
 
     public Long getId() {
         return id;
@@ -30,4 +38,11 @@ public class ListaFavoritosHasPrestadorServico {
         this.idPrestadorservicos = idPrestadorservicos;
     }
 
+    public ListaFavoritos getIdListaFavoritos() {
+        return idListaFavoritos;
+    }
+
+    public void setIdListaFavoritos(ListaFavoritos idListaFavoritos) {
+        this.idListaFavoritos = idListaFavoritos;
+    }
 }

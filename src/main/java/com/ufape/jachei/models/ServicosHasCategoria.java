@@ -1,5 +1,7 @@
 package com.ufape.jachei.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,16 @@ public class ServicosHasCategoria {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_servicos", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private Servico idServicos;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_contato", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private PrestadorServico idPrestadorServico;
+
     public Long getId() {
         return id;
     }
@@ -18,5 +30,19 @@ public class ServicosHasCategoria {
         this.id = id;
     }
 
-    //TODO [JPA Buddy] generate columns from DB
+    public Servico getIdServicos() {
+        return idServicos;
+    }
+
+    public void setIdServicos(Servico idServicos) {
+        this.idServicos = idServicos;
+    }
+
+    public PrestadorServico getIdPrestadorServico() {
+        return idPrestadorServico;
+    }
+
+    public void setIdPrestadorServico(PrestadorServico idPrestadorServico) {
+        this.idPrestadorServico = idPrestadorServico;
+    }
 }

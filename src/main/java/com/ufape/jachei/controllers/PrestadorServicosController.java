@@ -2,7 +2,6 @@ package com.ufape.jachei.controllers;
 
 import com.ufape.jachei.facade.Facade;
 import com.ufape.jachei.models.PrestadorServico;
-import com.ufape.jachei.models.Usuario;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +17,7 @@ public class PrestadorServicosController {
 
     @PostMapping(value = "/salvar-prestador-servicos")
     public String createPrestadorServico(@RequestBody PrestadorServico prestadorServico) {
+
         facede.savePrestadorServicos(prestadorServico);
         return "Salvo...";
     }
@@ -31,6 +31,12 @@ public class PrestadorServicosController {
     public List<PrestadorServico> getAllPrestadorServico() {
         return facede.findAllPrestadorServicos();
     }
+
+    @GetMapping(value = "/ver-todos-prestadores-servicos-na-cidade-{city}")
+    public List<PrestadorServico> getAllPrestadorServicoInCity(@PathVariable String city) {
+        return facede.findAllPrestadorServicosInCity(city);
+    }
+
     @PutMapping ( value = "/alterar-prestador-servicos/{id}")
     public String updatePrestadorServicos( @PathVariable Long id, @RequestBody @NotNull PrestadorServico prestadorServico ){
         PrestadorServico updatePrestador = facede.findByIdPrestadorServicos(id);
@@ -49,6 +55,7 @@ public class PrestadorServicosController {
         updatePrestador.setSenha(prestadorServico.getSenha());
 
         updatePrestador.setIdEndereco(prestadorServico.getIdEndereco());
+        updatePrestador.setIdContato(prestadorServico.getIdContato());
 
         facede.savePrestadorServicos(updatePrestador);
         return "Alterado...";
@@ -60,7 +67,7 @@ public class PrestadorServicosController {
         facede.deleteByIdPrestadorServicos(id);
     }
 
-    @DeleteMapping ( value = "/remover-prestador-servicos/{id}")
+
     public void deletePrestadorServicos( PrestadorServico entity ){
         facede.deletePrestadorServicos(entity);
     }

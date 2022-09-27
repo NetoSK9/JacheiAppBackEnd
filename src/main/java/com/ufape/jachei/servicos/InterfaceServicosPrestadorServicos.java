@@ -11,6 +11,8 @@ public interface InterfaceServicosPrestadorServicos {
 
     List<PrestadorServico> findAllPrestadorServicos();
 
+    List<PrestadorServico> findAllPrestadorServicosInCity(String city);
+
     void deleteByIdPrestadorServicos(Long id);
 
     void deletePrestadorServicos(PrestadorServico entity);

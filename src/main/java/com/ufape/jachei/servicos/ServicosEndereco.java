@@ -23,12 +23,8 @@ public class ServicosEndereco implements InterfaceServicosEndereco {
 
     @Override
     public Endereco findByIdEndereco(Long id) {
-        Optional<Endereco> Endereco = repositorioEndereco.findById(id);
-        if(Endereco.isPresent()){
-            return Endereco.get();
-        }else{
-            return null;
-        }
+        return repositorioEndereco.findById(id).get();
+
     }
 
     @Override

@@ -1,11 +1,7 @@
 package com.ufape.jachei.facade;
 
-import com.ufape.jachei.models.Avaliacao;
-import com.ufape.jachei.models.PrestadorServico;
-import com.ufape.jachei.models.Usuario;
-import com.ufape.jachei.servicos.InterfaceServicosAvaliacao;
-import com.ufape.jachei.servicos.InterfaceServicosPrestadorServicos;
-import com.ufape.jachei.servicos.InterfaceServicosUsuario;
+import com.ufape.jachei.models.*;
+import com.ufape.jachei.servicos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +15,13 @@ public class Facade {
     private InterfaceServicosAvaliacao servicosAvaliacao;
     @Autowired
     private InterfaceServicosUsuario servicosUsuario;
+    @Autowired
+    private InterfaceServicosEndereco servicosEndereco;
+    @Autowired
+    private InterfaceServicosContato servicosContato;
 
     public PrestadorServico savePrestadorServicos(PrestadorServico entity) {
+
         return servicosPrestadorServicos.savePrestadorServicos(entity);
     }
 
@@ -30,6 +31,10 @@ public class Facade {
 
     public List<PrestadorServico> findAllPrestadorServicos() {
         return servicosPrestadorServicos.findAllPrestadorServicos();
+    }
+
+    public List<PrestadorServico> findAllPrestadorServicosInCity(String city) {
+        return servicosPrestadorServicos.findAllPrestadorServicosInCity(city);
     }
 
     public void deleteByIdPrestadorServicos(Long id) {
@@ -57,8 +62,8 @@ public class Facade {
         servicosAvaliacao.deleteByIdAvaliacao(id);
     }
 
-    public void deleteAvaliacaoRepo(Avaliacao entity) {
-        servicosAvaliacao.deleteAvaliacaoRepo(entity);
+    public void deleteAvaliacao(Avaliacao entity) {
+        servicosAvaliacao.deleteAvaliacao(entity);
     }
 
 
@@ -82,4 +87,46 @@ public class Facade {
     public void deleteUsuario(Usuario entity) {
         servicosUsuario.deleteUsuario(entity);
     }
+
+
+    public Contato saveContato(Contato entity) {
+        return servicosContato.saveContato(entity);
+    }
+
+    public Contato findByIdContato(Long id){
+        return servicosContato.findByIdContato(id);
+    }
+
+    public List<Contato> findAllContatos() {
+        return servicosContato.findAllContatos();
+    }
+
+    public void deleteByIdContato(Long id) {
+        servicosContato.deleteByIdContato(id);
+    }
+
+    public void deleteContato(Contato entity) {
+        servicosContato.deleteContato(entity);
+    }
+
+    public Endereco saveEndereco(Endereco entity) {
+        return servicosEndereco.saveEndereco(entity);
+    }
+
+    public Endereco findByIdEndereco(Long id){
+        return servicosEndereco.findByIdEndereco(id);
+    }
+
+    public List<Endereco> findAllEnderecos() {
+        return servicosEndereco.findAllEnderecos();
+    }
+
+    public void deleteByIdEndereco(Long id) {
+        servicosEndereco.deleteByIdEndereco(id);
+    }
+
+    public void deleteEndereco(Endereco entity) {
+        servicosEndereco.deleteEndereco(entity);
+    }
+
 }

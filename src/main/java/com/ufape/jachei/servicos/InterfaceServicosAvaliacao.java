@@ -13,5 +13,5 @@ public interface InterfaceServicosAvaliacao {
 
     void deleteByIdAvaliacao(Long id);
 
-    void deleteAvaliacaoRepo(Avaliacao entity);
+    void deleteAvaliacao(Avaliacao entity);
 }

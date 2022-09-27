@@ -1,5 +1,7 @@
 package com.ufape.jachei.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +14,13 @@ public class PrestadorServico {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_endereco", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
     private Endereco idEndereco;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_contato", nullable = false)
+    @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
+    private Contato idContato;
 
     @Column(name = "aceitarAgendamento", nullable = false)
     private Byte aceitarAgendamento;
@@ -65,6 +73,14 @@ public class PrestadorServico {
 
     public void setIdEndereco(Endereco idEndereco) {
         this.idEndereco = idEndereco;
+    }
+
+    public Contato getIdContato() {
+        return idContato;
+    }
+
+    public void setIdContato(Contato idContato) {
+        this.idContato = idContato;
     }
 
     public Byte getAceitarAgendamento() {

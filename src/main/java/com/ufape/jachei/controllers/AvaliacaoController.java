@@ -2,7 +2,6 @@ package com.ufape.jachei.controllers;
 
 import com.ufape.jachei.facade.Facade;
 import com.ufape.jachei.models.Avaliacao;
-import com.ufape.jachei.models.Usuario;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,9 +47,8 @@ public class AvaliacaoController {
         facede.deleteByIdAvaliacao(id);
     }
 
-    @DeleteMapping( value = "/remover-usuario")
-    public void deleteUsuario(Usuario entity) {
-        facede.deleteUsuario(entity);
+    public void deleteAvaliacao(Avaliacao entity) {
+        facede.deleteAvaliacao(entity);
     }
 
 

@@ -41,7 +41,7 @@ public class ServicosAvaliacao implements InterfaceServicosAvaliacao {
 
 
     @Override
-    public void deleteAvaliacaoRepo(Avaliacao entity) {
+    public void deleteAvaliacao(Avaliacao entity) {
         repositorioAvaliacao.delete(entity);
     }
 }
