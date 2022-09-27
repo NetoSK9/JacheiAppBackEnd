@@ -23,9 +23,9 @@ public class ServicosListaFavoritosHasPrestadorServico implements InterfaceServi
 
     @Override
     public ListaFavoritosHasPrestadorServico findByIdListaFavoritosHasPrestadorServico(Long id) {
-        Optional<ListaFavoritosHasPrestadorServico> ListaFavoritosHasPrestadorServico = repositorioListaFavoritosHasPrestadorServico.findById(id);
-        if(ListaFavoritosHasPrestadorServico.isPresent()){
-            return ListaFavoritosHasPrestadorServico.get();
+        Optional<ListaFavoritosHasPrestadorServico> listaFavoritosHasPrestadorServico = repositorioListaFavoritosHasPrestadorServico.findById(id);
+        if(listaFavoritosHasPrestadorServico.isPresent()){
+            return listaFavoritosHasPrestadorServico.get();
         }else{
             return null;
         }
