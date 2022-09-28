@@ -18,9 +18,9 @@ public class ServicosHasCategoria {
     private Servico idServicos;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_contato", nullable = false)
+    @JoinColumn(name = "id_categoria", nullable = false)
     @JsonIgnoreProperties(value = {"applications", "hibernateLazyInitializer"})
-    private PrestadorServico idPrestadorServico;
+    private Categoria idCategoria;
 
     public Long getId() {
         return id;
@@ -38,11 +38,11 @@ public class ServicosHasCategoria {
         this.idServicos = idServicos;
     }
 
-    public PrestadorServico getIdPrestadorServico() {
-        return idPrestadorServico;
+    public Categoria getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setIdPrestadorServico(PrestadorServico idPrestadorServico) {
-        this.idPrestadorServico = idPrestadorServico;
+    public void setIdCategoria(Categoria idCategoria) {
+        this.idCategoria = idCategoria;
     }
 }

@@ -45,19 +45,8 @@ public class ServicosPrestadorServicos implements InterfaceServicosPrestadorServ
 
     @Override
     public List<PrestadorServico> findAllPrestadorServicosInCity(String city){
-        List<PrestadorServico> prestadores = repositorioPrestador.findAll();
-        List<PrestadorServico> prestadoresRestorno = new ArrayList<>();
         String formatedCity = city.toLowerCase(Locale.ROOT).replace(" ","-");
-
-        for (PrestadorServico prestador : prestadores){
-            if(prestador.getIdEndereco().getCidade()
-                    .toLowerCase(Locale.ROOT)
-                    .replace(" ","-")
-                    .equals(formatedCity) ){
-                prestadoresRestorno.add(prestador);
-            }
-        }
-        return prestadoresRestorno;
+        return repositorioPrestador.findAllInCity(formatedCity);
     }
 
     @Override
