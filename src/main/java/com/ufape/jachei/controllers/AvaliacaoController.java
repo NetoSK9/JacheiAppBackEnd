@@ -25,6 +25,11 @@ public class AvaliacaoController {
         return facede.findByIdAvaliacao(id);
     }
 
+    @GetMapping( value = "/avaliacoes-do-prestador/{id}" )
+    public List<Avaliacao> findAvaliacaoOfThisPrestador(@PathVariable Long id) {
+        return facede.findAllAvaliacaoOfThisPrestador(id);
+    }
+
     @GetMapping( value = "/ver-todas-avaliacoes" )
     public List<Avaliacao> findAllAvaliacoes() {
         return facede.findAllAvaliacoes();

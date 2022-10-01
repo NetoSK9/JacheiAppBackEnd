@@ -11,6 +11,8 @@ public interface InterfaceServicosAvaliacao {
 
     List<Avaliacao> findAllAvaliacao();
 
+    List<Avaliacao> findAllAvaliacaoOfThisPrestador(Long idPrestador);
+
     void deleteByIdAvaliacao(Long id);
 
     void deleteAvaliacao(Avaliacao entity);

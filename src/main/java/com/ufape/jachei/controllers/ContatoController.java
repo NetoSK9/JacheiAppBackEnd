@@ -15,9 +15,8 @@ public class ContatoController {
     private Facade facede;
 
     @PostMapping(value = "/salvar-contato")
-    public String saveContato(@RequestBody Contato entity) {
-        facede.saveContato(entity);
-        return "Salvo...";
+    public Long saveContato(@RequestBody Contato entity) {
+        return facede.saveContato(entity).getId();
     }
 
     @GetMapping( value = "/contato/{id}" )

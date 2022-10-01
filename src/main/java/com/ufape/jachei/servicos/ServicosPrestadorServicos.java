@@ -3,10 +3,10 @@ package com.ufape.jachei.servicos;
 
 import com.ufape.jachei.models.*;
 import com.ufape.jachei.repo.*;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,7 +44,7 @@ public class ServicosPrestadorServicos implements InterfaceServicosPrestadorServ
     }
 
     @Override
-    public List<PrestadorServico> findAllPrestadorServicosInCity(String city){
+    public List<PrestadorServico> findAllPrestadorServicosInCity(@NotNull String city){
         String formatedCity = city.toLowerCase(Locale.ROOT).replace(" ","-");
         return repositorioPrestador.findAllInCity(formatedCity);
     }

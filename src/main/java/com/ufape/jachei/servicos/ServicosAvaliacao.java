@@ -33,6 +33,11 @@ public class ServicosAvaliacao implements InterfaceServicosAvaliacao {
         return repositorioAvaliacao.findAll();
     }
 
+    @Override
+    public List<Avaliacao> findAllAvaliacaoOfThisPrestador(Long idPrestador){
+        return repositorioAvaliacao.findAllOfThisPrestador(idPrestador);
+    }
+
 
     @Override
     public void deleteByIdAvaliacao(Long id) {

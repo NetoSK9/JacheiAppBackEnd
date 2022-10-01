@@ -15,9 +15,8 @@ public class EnderecoController {
     private Facade facede;
 
     @PostMapping(value = "/salvar-endereco")
-    public String saveEndereco(@RequestBody Endereco entity) {
-        facede.saveEndereco(entity);
-        return "Salvo...";
+    public Long saveEndereco(@RequestBody Endereco entity) {
+        return facede.saveEndereco(entity).getId();
     }
 
     @GetMapping( value = "/endereco/{id}" )

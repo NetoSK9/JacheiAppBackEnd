@@ -57,6 +57,9 @@ public class Facade {
     public List<Avaliacao> findAllAvaliacoes() {
         return servicosAvaliacao.findAllAvaliacao();
     }
+    public List<Avaliacao> findAllAvaliacaoOfThisPrestador(Long idPrestador){
+        return servicosAvaliacao.findAllAvaliacaoOfThisPrestador(idPrestador);
+    }
 
     public void deleteByIdAvaliacao(Long id) {
         servicosAvaliacao.deleteByIdAvaliacao(id);
