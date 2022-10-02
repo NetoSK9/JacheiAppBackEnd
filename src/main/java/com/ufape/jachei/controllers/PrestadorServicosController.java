@@ -1,6 +1,8 @@
 package com.ufape.jachei.controllers;
 
 import com.ufape.jachei.facade.Facade;
+import com.ufape.jachei.models.Contato;
+import com.ufape.jachei.models.Endereco;
 import com.ufape.jachei.models.PrestadorServico;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +67,16 @@ public class PrestadorServicosController {
     @DeleteMapping ( value = "/remover-prestador-servicos/{id}")
     public void deleteByIdPrestadorServicos( @PathVariable Long id ){
         facede.deleteByIdPrestadorServicos(id);
+    }
+
+    @GetMapping( value = "/ver-contato-prestador/{idPrestadorServicos}" )
+    public Contato findContatoOfPrestadorServicos(@PathVariable Long idPrestadorServicos) {
+        return facede.findByIdPrestadorServicos(idPrestadorServicos).getIdContato();
+    }
+
+    @GetMapping( value = "/ver-endereco-prestador/{idPrestadorServicos}" )
+    public Endereco findEnderecoOfPrestadorServicos(@PathVariable Long idPrestadorServicos) {
+        return facede.findByIdPrestadorServicos(idPrestadorServicos).getIdEndereco();
     }
 
 

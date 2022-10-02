@@ -19,6 +19,8 @@ public class Facade {
     private InterfaceServicosEndereco servicosEndereco;
     @Autowired
     private InterfaceServicosContato servicosContato;
+    @Autowired
+    private InterfaceServicosServicosHasCategoria servicosServicosHasCategoria;
 
     public PrestadorServico savePrestadorServicos(PrestadorServico entity) {
 
@@ -130,6 +132,10 @@ public class Facade {
 
     public void deleteEndereco(Endereco entity) {
         servicosEndereco.deleteEndereco(entity);
+    }
+
+    public List<ServicosHasCategoria> findAllServicosHasCategoria(){
+        return  servicosServicosHasCategoria.findAllServicosHasCategorias();
     }
 
 }
