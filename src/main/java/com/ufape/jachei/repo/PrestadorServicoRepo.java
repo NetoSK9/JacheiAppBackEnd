@@ -12,4 +12,11 @@ public interface PrestadorServicoRepo extends JpaRepository<PrestadorServico,Lon
             " on prestadorservicos.id_endereco = endereco.id" +
             " and lower(  replace(endereco.cidade,' ','-') ) = (:city)")
     List<PrestadorServico> findAllInCity(String city);
+    @Query( nativeQuery = true, value = "select prestadorservicos.*\n" +
+            "from prestadorservicos right join prestadorservicos_has_servicos\n" +
+            "\ton prestadorservicos.id = prestadorservicos_has_servicos.id_prestador_servico\n" +
+            "left join servicos\n" +
+            "\ton servicos.id=prestadorservicos_has_servicos.id_servicos\n" +
+            "    where lower( replace(servicos.nome,' ','-')) = (:service);")
+    List<PrestadorServico> findAllWhitService(String service);
 }

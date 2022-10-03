@@ -1,6 +1,7 @@
 package com.ufape.jachei.servicos;
 
 import com.ufape.jachei.models.PrestadorServico;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public interface InterfaceServicosPrestadorServicos {
     List<PrestadorServico> findAllPrestadorServicos();
 
     List<PrestadorServico> findAllPrestadorServicosInCity(String city);
+
+    List<PrestadorServico> findAllPrestadorServicosWhitService(@NotNull String service);
 
     void deleteByIdPrestadorServicos(Long id);
 

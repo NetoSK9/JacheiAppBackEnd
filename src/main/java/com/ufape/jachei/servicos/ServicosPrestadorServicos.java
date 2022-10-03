@@ -48,6 +48,12 @@ public class ServicosPrestadorServicos implements InterfaceServicosPrestadorServ
         String formatedCity = city.toLowerCase(Locale.ROOT).replace(" ","-");
         return repositorioPrestador.findAllInCity(formatedCity);
     }
+    @Override
+    public List<PrestadorServico> findAllPrestadorServicosWhitService(@NotNull String service){
+        String formatedService = service.toLowerCase(Locale.ROOT).replace(" ","-");
+        return repositorioPrestador.findAllWhitService(formatedService);
+    }
+
 
     @Override
     public void deleteByIdPrestadorServicos(Long id) {
@@ -67,8 +73,8 @@ public class ServicosPrestadorServicos implements InterfaceServicosPrestadorServ
         }
 
         //Apaga toda a relação que o prestador tinha com os servicos
-        List<PrestadorservicosHasServico> prestadorServicosServicos = prestadorServicosHasServicosRepo.findAll();
-        for (PrestadorservicosHasServico lista : prestadorServicosServicos){
+        List<PrestadorServicosHasServicos> prestadorServicosServicos = prestadorServicosHasServicosRepo.findAll();
+        for (PrestadorServicosHasServicos lista : prestadorServicosServicos){
             if( lista.getIdPrestadorServico().getId().equals(id) ){
                 prestadorServicosHasServicosRepo.deleteById(lista.getId());
             }

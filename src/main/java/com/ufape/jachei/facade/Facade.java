@@ -21,6 +21,8 @@ public class Facade {
     private InterfaceServicosContato servicosContato;
     @Autowired
     private InterfaceServicosServicosHasCategoria servicosServicosHasCategoria;
+    @Autowired
+    private InterfaceServicosPrestadorServicosHasServicos servicosPrestadorServicosHasServicos;
 
     public PrestadorServico savePrestadorServicos(PrestadorServico entity) {
 
@@ -37,6 +39,10 @@ public class Facade {
 
     public List<PrestadorServico> findAllPrestadorServicosInCity(String city) {
         return servicosPrestadorServicos.findAllPrestadorServicosInCity(city);
+    }
+
+    public List<PrestadorServico> findAllPrestadorServicosWhitService(String service) {
+        return servicosPrestadorServicos.findAllPrestadorServicosWhitService(service);
     }
 
     public void deleteByIdPrestadorServicos(Long id) {
@@ -136,6 +142,28 @@ public class Facade {
 
     public List<ServicosHasCategoria> findAllServicosHasCategoria(){
         return  servicosServicosHasCategoria.findAllServicosHasCategorias();
+    }
+
+
+
+    public PrestadorServicosHasServicos savePrestadorServicosHasServicos(PrestadorServicosHasServicos entity) {
+        return servicosPrestadorServicosHasServicos.savePrestadorServicosHasServicos(entity);
+    }
+
+    public PrestadorServicosHasServicos findByIdPrestadorServicosHasServicos(Long id){
+        return servicosPrestadorServicosHasServicos.findByIdPrestadorServicosHasServicos(id);
+    }
+
+    public List<PrestadorServicosHasServicos> findAllPrestadorServicosHasServicos() {
+        return servicosPrestadorServicosHasServicos.findAllPrestadorServicosHasServicos();
+    }
+
+    public void deleteByIdPrestadorServicosHasServicos(Long id) {
+        servicosPrestadorServicosHasServicos.deleteByIdPrestadorServicosHasServicos(id);
+    }
+
+    public void deletePrestadorServicosHasServicos(PrestadorServicosHasServicos entity) {
+        servicosPrestadorServicosHasServicos.deletePrestadorServicosHasServicos(entity);
     }
 
 }

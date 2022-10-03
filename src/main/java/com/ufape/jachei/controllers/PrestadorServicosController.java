@@ -39,6 +39,12 @@ public class PrestadorServicosController {
         return facede.findAllPrestadorServicosInCity(city);
     }
 
+    @GetMapping(value = "/ver-todos-prestadores-servicos-com-servico-de-{servico}")
+    public List<PrestadorServico> getAllPrestadorServicoWhitServic(@PathVariable String servico) {
+        return facede.findAllPrestadorServicosWhitService(servico);
+    }
+
+
     @PutMapping ( value = "/alterar-prestador-servicos/{id}")
     public String updatePrestadorServicos( @PathVariable Long id, @RequestBody @NotNull PrestadorServico prestadorServico ){
         PrestadorServico updatePrestador = facede.findByIdPrestadorServicos(id);
